@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PasswordGenerator</title>
+    <link rel="stylesheet" href="{% static 'public/build/tailwind.css' %}">
+
+</head>
+<body class="bg-gray-200">
+    <nav class="bg-gray-800 mb-4">
+        <div class="px-4 py-2 items-center text-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg">
+            <a class="block mx-auto my-2 w-56 text-white font-semibold text-2xl" href="{% url 'generator:home_page' %}">PasswordGenerator</a>
+            <a class="block mx-auto my-2 w-20  text-gray-50  hover:text-pink-300" href="{% url 'generator:about_page' %}">About me</a>
+
+
+        </div>
+    </nav>
+
+    
+    {% block content %}
+        
+    {% endblock %}
+</body>
+</html>

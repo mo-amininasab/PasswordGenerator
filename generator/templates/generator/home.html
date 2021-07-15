@@ -1,0 +1,53 @@
+{% extends 'generator/base.html' %}
+
+
+{% block content %}
+    {% if Error %}
+        <div class="mx-auto xs:w-52 sm:w-96  mt-6 text-center flex flex-col content-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              
+            <div class="text-red-600 font-semibold">
+                {{Error}}
+            </div>
+
+        </div>
+    {% endif %}
+
+    <form class="p-2 mt-10 text-center mx-auto my-6 max-w-xs w-52 border-double border-4 border-indigo-400 rounded-lg shadow-xl" action="{% url 'generator:show_page' %}" method="GET">
+        <div class="flex flex-col mb-4 w-min mx-auto">
+            <div class="flex flex-row space-x-2">
+                <label for="length" class="my-auto">Length:</label>
+                <input type="number" id="length" name="length" class="w-10 bg-gray-200 border border-gray-400 rounded hover:border-gray-700 focus:border-gray-400" min="6" max="99" value="12">
+            </div>
+
+            <div class="flex flex-row space-x-2">
+                <input type="checkbox" id="lowercase" class="checked:bg-blue-600 checked:border-transparent my-auto" name="lowercase" checked>
+                <label for="lowercase">Lowercase</label>
+            </div>
+            <div class="flex flex-row space-x-2">
+                <input type="checkbox" id="uppercase" name="uppercase" class="checked:bg-blue-600 checked:border-transparent my-auto">
+                <label for="uppercase">Uppercase</label>
+            </div>
+            <div class="flex flex-row space-x-2">
+                <input type="checkbox" id="numbers" name="numbers" class="checked:bg-blue-600 checked:border-transparent my-auto">
+                <label for="numbers">Numbers</label>
+            </div>
+            <div class="flex flex-row space-x-2">
+                <input type="checkbox" id="symbols" name="symbols" class="checked:bg-blue-600 checked:border-transparent my-auto">
+                <label for="symbols">Symbol</label>
+            </div>
+
+        </div>
+
+        <button type="submit" class="uppercase bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 mb-2 rounded focus:outline-none focus:shadow-outline">
+            Generate
+        </button>
+        
+
+    </form>
+    <p class="text-center text-gray-500 text-xs">
+        &copy;2021. All rights reserved.
+    </p>
+{% endblock %}

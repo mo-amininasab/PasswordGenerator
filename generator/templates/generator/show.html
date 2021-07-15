@@ -1,0 +1,35 @@
+{% extends 'generator/base.html' %}
+
+{% block content %}
+<script>
+    function CopyToClipboard(id) {
+        let r = document.createRange();
+        r.selectNode(document.getElementById(id));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(r);
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges();
+    }
+</script>
+
+
+<div class="flex flex-col w-52 mx-auto">
+    <img src="../../static/password_black_24dp (2).svg" alt="password icone" class="h-10 text-green-500">
+    <h1 class="text-center font-semibold">Your password is here</h1>
+    <h1 class="mt-3 text-center font-mono border-solid border-4 break-words" id="the_password">{{the_password}}</h1>
+
+    <div class="flex mx-auto space-x-2 mt-3">
+        <button type="button" onclick="CopyToClipboard('the_password')" class="w-20 py-2 mx-auto bg-red-500 hover:bg-red-700 text-white font-bold rounded focus:outline-none focus:shadow-outline bg-gradient-to-r from-pink-400 to-yellow-500 focus:ring focus:ring-pink-500">
+            Copy
+        </button>
+
+        <button type="button" onclick="location.reload()" class="w-9 py-2 mx-auto bg-red-500 hover:bg-red-700 text-white font-bold rounded focus:outline-none focus:shadow-outline bg-gradient-to-r from-pink-400 to-yellow-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>              
+        </button>
+
+    </div>
+
+</div>
+{% endblock %}
